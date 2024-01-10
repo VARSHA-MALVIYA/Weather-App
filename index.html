@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+       background-image: url('https://media.istockphoto.com/id/878607638/photo/clouds-aerial-view.webp?b=1&s=170667a&w=0&k=20&c=aa_no7g26uq0UnZYnNLZtZopKsjnST-rGqut5dnRv20=');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:cover;
+        opacity: 0.8;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+   .inputtag{
+        height: 70%;
+        width: 70%;
+        color: black;
+        background: white;
+        font-size: 90%;
+        margin-right: 2%;
+        border-radius: 18px;
+        padding: 0.8rem;
+        font-size: 20px;
+        border: 3px solid blue;
+    }
+    .btn{
+        
+        color:blue;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    #description
+    {
+        text-transform: capitalize;
+    }
+    #imagediv{
+        display: flex;
+        align-items: center;
+    }
+    #icon{
+        height: 80%;
+    }
+
+    .weather.loading{
+        visibility: hidden;
+    }
+
+    .weather.loading::after{
+        visibility: visible;
+        content: "Loading...";
+        color: white;
+        font-size: 200%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }  
+    
+    </style>
+
+</head>
+<body class="h-[100vh] w-full flex justify-center items-center text-white  m-0 ">
+    <div id="card" class="bg-slate-900 p-3 m-[12px] w-[80%] h-[55%] rounded-3xl md:w-5/12 md:h-3/5 ">
+        <div id="searchbar" class="flex justify-center items-center  h-[10%]">
+            <input type="text" class="inputtag" placeholder="Search city">
+            <button class="btn" ><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg></button>
+        </div>
+
+        <div class="weather loading" class="h-[80%] w-[100%] flex flex-col">
+            <h1 class="md:text-4xl text-xl font-bold  md:p-10 ml-2 pt-5 pl-2 pb-3 font-serif " id="city"></h1>
+
+            <div id="temperature" class="text-3xl font-serif flex justify-center items-center  md:font-serif md:text-4xl"></div>
+
+            <div id="imagediv" class="h-[35%]  w-[80%] md:h-[40%] md:w-[80%] pl-5 pb-5 flex">
+              <img src="" id="icon" alt="" >
+              <div id="description"class="text-xl font-serif md:font-serif  pt-2 md:text-3xl "></div>
+            </div>
+
+            <div id="humidity" class="text-xl font-serif  pl-5  pt-7 md:text-3xl"></div>
+            <div id="windSpeed" class="text-xl font-serif  pl-5  md:text-3xl"></div>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>
